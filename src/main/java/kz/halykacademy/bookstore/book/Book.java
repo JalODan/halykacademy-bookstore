@@ -1,5 +1,6 @@
 package kz.halykacademy.bookstore.book;
 
+import kz.halykacademy.bookstore.Publisher.Publisher;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Book {
 
@@ -16,6 +18,9 @@ public class Book {
     private Long id;
     private String title;
     private Integer releaseYear;
-    private int numberOfPages;
+    private Integer numberOfPages;
     private Double price;
+
+    @ManyToOne
+    private Publisher publisher;
 }

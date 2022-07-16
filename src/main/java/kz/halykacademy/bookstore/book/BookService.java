@@ -21,6 +21,7 @@ public class BookService {
         if (!bookRepository.existsById(id)) {
             throw new IllegalStateException("Book with ID=" + id + " not found");
         }
+
         return bookRepository.findById(id).get();
     }
 
@@ -29,10 +30,12 @@ public class BookService {
         if (!bookRepository.existsById(id)) {
             throw new IllegalStateException("Book with ID=" + id + " not found");
         }
+
         bookRepository.deleteById(id);
     }
 
     public void create(Book book) {
+
         bookRepository.save(book);
     }
 

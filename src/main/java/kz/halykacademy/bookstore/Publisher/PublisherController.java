@@ -1,9 +1,9 @@
 package kz.halykacademy.bookstore.Publisher;
 
-import kz.halykacademy.bookstore.book.Book;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "api/v1/publisher")
@@ -16,14 +16,13 @@ public class PublisherController {
     }
 
     @GetMapping
-    public List<Publisher> getAll() {
-
-        return publisherService.getAll();
+    public List<PublisherDTO> getAll() {
+        return publisherService.getAll().stream().map(PublisherDTO::new).collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public Publisher getById(@PathVariable Long id) {
-        return publisherService.getById(id);
+    public PublisherDTO getById(@PathVariable Long id) {
+        return new PublisherDTO(publisherService.getById(id));
     }
 
     @DeleteMapping("/{id}")
@@ -32,12 +31,15 @@ public class PublisherController {
     }
 
     @PostMapping
-    public void create(@RequestBody Publisher publisher) {
+    public void create(@RequestBody PublisherCreationDTO dto) {
+        Publisher publisher = dto.toPublisher();
         publisherService.create(publisher);
     }
 
-    @PutMapping
-    public void update(@RequestBody Publisher publisher) {
+    @PutMapping("/{id}")
+    public void update(@PathVariable Long id, @RequestBody PublisherCreationDTO dto) {
+        Publisher publisher = dto.toPublisher();
+        publisher.setId(id);
         publisherService.update(publisher);
     }
 }
