@@ -1,22 +1,17 @@
 package kz.halykacademy.bookstore.author;
 
 import kz.halykacademy.bookstore.book.Book;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Author {
 
@@ -27,4 +22,6 @@ public class Author {
     private String firstname;
     private String fathername;
     private LocalDate dateOfBirth;
+    @ManyToMany(mappedBy = "authors")
+    private Set<Book> books;
 }

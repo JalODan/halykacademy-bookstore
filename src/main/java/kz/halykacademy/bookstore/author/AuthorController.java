@@ -4,26 +4,29 @@ import kz.halykacademy.bookstore.book.Book;
 import kz.halykacademy.bookstore.book.BookService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "api/v1/author")
 public class AuthorController {
 
     private final AuthorService authorService;
+    private final BookService bookService;
 
-    public AuthorController(AuthorService authorService) {
+    public AuthorController(AuthorService authorService, BookService bookService) {
         this.authorService = authorService;
+        this.bookService = bookService;
     }
 
     @GetMapping
-    public List<Author> getAll() {
-        return authorService.getAll();
+    public Set<AuthorDTO> getAll() {
+        return authorService.getAll().stream().map(AuthorDTO::new).collect(Collectors.toSet());
     }
 
     @GetMapping("/{id}")
-    public Author getById(@PathVariable Long id) {
-        return authorService.getById(id);
+    public AuthorDTO getById(@PathVariable Long id) {
+        return new AuthorDTO(authorService.getById(id));
     }
 
     @DeleteMapping("/{id}")
@@ -32,7 +35,9 @@ public class AuthorController {
     }
 
     @PostMapping
-    public void create(@RequestBody Author author) {
+    public void create(@RequestBody AuthorCreationDTO dto) {
+
+        Author author = dto.toAuthor();
         authorService.create(author);
     }
 

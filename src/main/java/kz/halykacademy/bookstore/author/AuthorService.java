@@ -18,7 +18,6 @@ public class AuthorService {
     }
 
     public Author getById(Long id) {
-
         if (!authorRepository.existsById(id)) {
             throw new IllegalStateException("Author with ID=" + id + " not found");
         }

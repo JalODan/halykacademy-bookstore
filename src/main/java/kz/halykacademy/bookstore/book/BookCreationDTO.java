@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,6 +18,7 @@ public class BookCreationDTO {
     private Integer numberOfPages;
     private Double price;
     private Long publisherID;
+    private Set<Long> authorIDs;
 
     public Book toBook() {
 

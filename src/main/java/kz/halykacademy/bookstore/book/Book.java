@@ -1,9 +1,11 @@
 package kz.halykacademy.bookstore.book;
 
 import kz.halykacademy.bookstore.Publisher.Publisher;
+import kz.halykacademy.bookstore.author.Author;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,7 +22,8 @@ public class Book {
     private Integer releaseYear;
     private Integer numberOfPages;
     private Double price;
-
     @ManyToOne
     private Publisher publisher;
+    @ManyToMany
+    Set<Author> authors;
 }
