@@ -3,6 +3,7 @@ package kz.halykacademy.bookstore.Publisher;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -41,5 +42,11 @@ public class PublisherController {
         Publisher publisher = dto.toPublisher();
         publisher.setId(id);
         publisherService.update(publisher);
+    }
+
+    @GetMapping("/search/{partOfName}")
+    public Set<PublisherDTO> findByName(@PathVariable String partOfName) {
+
+        return publisherService.findByName(partOfName).stream().map(PublisherDTO::new).collect(Collectors.toSet());
     }
 }

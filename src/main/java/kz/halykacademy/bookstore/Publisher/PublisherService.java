@@ -4,6 +4,7 @@ import kz.halykacademy.bookstore.book.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class PublisherService {
@@ -23,6 +24,11 @@ public class PublisherService {
             throw new IllegalStateException("Publisher with ID=" + id + " not found");
         }
         return publisherRepository.findById(id).get();
+    }
+
+    public Set<Publisher> findByName(String partOfName) {
+
+        return publisherRepository.findByNameContainingIgnoreCase(partOfName);
     }
 
     public void delete(Long id) {
@@ -45,4 +51,5 @@ public class PublisherService {
 
         publisherRepository.save(publisher);
     }
+
 }

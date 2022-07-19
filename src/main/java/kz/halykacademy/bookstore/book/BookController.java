@@ -70,4 +70,10 @@ public class BookController {
 
         bookService.update(book);
     }
+
+    @GetMapping("/search/{partOfTitle}")
+    public Set<BookDTO> findByTitle(@PathVariable String partOfTitle) {
+
+        return bookService.findByTitle(partOfTitle).stream().map(BookDTO::new).collect(Collectors.toSet());
+    }
 }

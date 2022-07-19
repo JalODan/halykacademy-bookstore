@@ -5,6 +5,7 @@ import kz.halykacademy.bookstore.book.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class AuthorService {
@@ -44,4 +45,10 @@ public class AuthorService {
 
         authorRepository.save(author);
     }
+
+    public Set<Author> findByName(String partOfName) {
+
+        return authorRepository.getAuthorsByFirstnameContainingIgnoreCaseOrLastnameContainingIgnoreCaseOrFathernameContainingIgnoreCase(partOfName, partOfName, partOfName);
+    }
+
 }

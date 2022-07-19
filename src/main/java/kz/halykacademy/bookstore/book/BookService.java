@@ -3,6 +3,7 @@ package kz.halykacademy.bookstore.book;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class BookService {
@@ -46,5 +47,9 @@ public class BookService {
         }
 
         bookRepository.save(book);
+    }
+
+    public Set<Book> findByTitle(String partOfTitle) {
+        return bookRepository.findByTitleContainingIgnoreCase(partOfTitle);
     }
 }

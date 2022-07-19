@@ -1,6 +1,5 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.book.Book;
 import kz.halykacademy.bookstore.book.BookService;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,5 +43,11 @@ public class AuthorController {
     @PutMapping
     public void update(@RequestBody Author author) {
         authorService.update(author);
+    }
+
+    @GetMapping("/search/{partOfName}")
+    public Set<AuthorDTO> findByName(@PathVariable String partOfName) {
+
+        return authorService.findByName(partOfName).stream().map(AuthorDTO::new).collect(Collectors.toSet());
     }
 }
