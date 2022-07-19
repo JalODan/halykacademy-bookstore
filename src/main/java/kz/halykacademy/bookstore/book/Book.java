@@ -1,5 +1,6 @@
 package kz.halykacademy.bookstore.book;
 
+import kz.halykacademy.bookstore.Genre.Genre;
 import kz.halykacademy.bookstore.Publisher.Publisher;
 import kz.halykacademy.bookstore.author.Author;
 import lombok.*;
@@ -26,4 +27,7 @@ public class Book {
     private Publisher publisher;
     @ManyToMany
     Set<Author> authors;
+
+    @ManyToMany
+    private Set<Genre> genres;
 }

@@ -1,5 +1,6 @@
 package kz.halykacademy.bookstore.author;
 
+import kz.halykacademy.bookstore.Genre.Genre;
 import kz.halykacademy.bookstore.book.Book;
 import lombok.*;
 
@@ -22,6 +23,10 @@ public class Author {
     private String firstname;
     private String fathername;
     private LocalDate dateOfBirth;
+
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
+
+    @ManyToMany
+    private Set<Genre> genres;
 }

@@ -10,42 +10,42 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
-- url: https://virtserver.swaggerhub.com/OLZHASJALMUKHAMBETOV/Bookstore/1.0.0
-  description: SwaggerHub API Auto Mocking
+  - url: https://virtserver.swaggerhub.com/OLZHASJALMUKHAMBETOV/Bookstore/1.0.0
+    description: SwaggerHub API Auto Mocking
 tags:
-- name: admin
-  description: Secured Admin-only calls
-- name: user
-  description: Operations available to users
+  - name: admin
+    description: Secured Admin-only calls
+  - name: user
+    description: Operations available to users
 paths:
   /book:
     post:
       tags:
-      - admin
+        - admin
       description: New book registration
       parameters:
-      - name: book
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/Book'
+        - name: book
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Book'
       responses:
         "201":
           description: Created
   /book/findByName:
     get:
       tags:
-      - user
+        - user
       parameters:
-      - name: title
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: title
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
           description: successful
@@ -55,48 +55,70 @@ paths:
                 $ref: '#/components/schemas/Book'
         "204":
           description: not found
+
+  /book/findByGenre/{genreId}:
+    get:
+      tags:
+        - user
+      parameters:
+        - name: genreId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
   /author:
     post:
       tags:
-      - admin
+        - admin
       description: New author registration
       parameters:
-      - name: author
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/Author'
+        - name: author
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Author'
       responses:
         "201":
           description: Created
   /author/findByName:
     get:
       tags:
-      - user
+        - user
       parameters:
-      - name: firstname
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: lastname
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: fathername
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: firstname
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: lastname
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fathername
+          in: query
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
           description: successful
@@ -106,34 +128,56 @@ paths:
                 $ref: '#/components/schemas/Author'
         "204":
           description: not found
+
+  /author/findByGenre/{genreId}:
+    get:
+      tags:
+        - user
+      parameters:
+        - name: genreId
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
   /publisher:
     post:
       tags:
-      - admin
+        - admin
       description: New publisher registration
       parameters:
-      - name: publisher
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/Publisher'
+        - name: publisher
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Publisher'
       responses:
         "201":
           description: Created
   /publisher/findByName:
     get:
       tags:
-      - user
+        - user
       parameters:
-      - name: name
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: string
+        - name: name
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
       responses:
         "200":
           description: successful
@@ -146,41 +190,121 @@ paths:
   /order:
     post:
       tags:
-      - user
+        - user
       parameters:
-      - name: order
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/Order'
+        - name: order
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Order'
       responses:
         "201":
           description: Created
   /order/approval:
     patch:
       tags:
-      - admin
+        - admin
       parameters:
-      - name: id
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int64
-      - name: status
-        in: query
-        required: true
-        style: form
-        explode: true
-        schema:
-          $ref: '#/components/schemas/OrderStatus'
+        - name: id
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: integer
+            format: int64
+        - name: status
+          in: query
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/OrderStatus'
       responses:
         "200":
           description: Successful
+
+  /genre:
+    get:
+      tags:
+        - user
+      description: Get the list of all genres
+      responses:
+        "200":
+          description: Successful
+
+    post:
+      tags:
+        - admin
+      description: Register new genre
+      parameters:
+        - name: genre
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/Genre'
+      responses:
+        "201":
+          description: Created
+
+  /genre/{id}:
+    get:
+      tags:
+        - user
+      description: Get a specific genre
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+        "400":
+          description: Not found
+
+    delete:
+      tags:
+        - admin
+      description: Delete genre
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+        "400":
+          description: Not found
+
+    put:
+      tags:
+        - admin
+      description: Update existing genre
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+        "400":
+          description: Not found
+
+
+
+
+
 components:
   schemas:
     Book:
@@ -206,8 +330,10 @@ components:
         publicationYear:
           type: integer
           format: int32
-        genre:
-          $ref: '#/components/schemas/Genre'
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
     Author:
       type: object
       properties:
@@ -227,8 +353,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Book'
-        genre:
-          $ref: '#/components/schemas/Genre'
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
     Publisher:
       type: object
       properties:
