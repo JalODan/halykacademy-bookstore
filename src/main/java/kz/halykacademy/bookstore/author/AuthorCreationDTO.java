@@ -21,7 +21,7 @@ public class AuthorCreationDTO {
     private String firstname;
     private String fathername;
     private LocalDate dateOfBirth;
-
+    private Set<Long> genreIDs;
     public Author toAuthor() {
 
         return Author.builder()

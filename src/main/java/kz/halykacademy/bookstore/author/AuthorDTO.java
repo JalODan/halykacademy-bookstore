@@ -1,5 +1,6 @@
 package kz.halykacademy.bookstore.author;
 
+import kz.halykacademy.bookstore.Genre.Genre;
 import kz.halykacademy.bookstore.book.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,6 +25,7 @@ public class AuthorDTO {
     private String fathername;
     private LocalDate dateOfBirth;
     private Set<Long> bookIDs;
+    private Set<Long> genreIDs;
 
     public AuthorDTO(Author author) {
 
@@ -33,5 +35,6 @@ public class AuthorDTO {
         this.fathername = author.getFathername();
         this.dateOfBirth = author.getDateOfBirth();
         this.bookIDs = author.getBooks().stream().map(Book::getId).collect(Collectors.toSet());
+        this.genreIDs = author.getGenres().stream().map(Genre::getId).collect(Collectors.toSet());
     }
 }
