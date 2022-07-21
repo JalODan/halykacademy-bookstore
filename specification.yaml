@@ -56,17 +56,19 @@ paths:
         "204":
           description: not found
 
-  /book/findByGenre/{genreId}:
+  /book/findByGenres:
     get:
       tags:
         - user
       parameters:
-        - name: genreId
-          in: path
+        - name: genreIDs
+          in: query
           required: true
           schema:
-            type: integer
-            format: int64
+            type: array
+            items:
+              type: integer
+              format: int64
       responses:
         "200":
           description: Successful
@@ -129,17 +131,19 @@ paths:
         "204":
           description: not found
 
-  /author/findByGenre/{genreId}:
+  /author/findByGenres:
     get:
       tags:
         - user
       parameters:
-        - name: genreId
-          in: path
+        - name: genreIDs
+          in: query
           required: true
           schema:
-            type: integer
-            format: int64
+            type: array
+            items:
+              type: integer
+              format: int64
       responses:
         "200":
           description: Successful

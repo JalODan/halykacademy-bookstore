@@ -1,5 +1,6 @@
 package kz.halykacademy.bookstore.book;
 
+import kz.halykacademy.bookstore.Genre.Genre;
 import kz.halykacademy.bookstore.Publisher.PublisherDTO;
 import kz.halykacademy.bookstore.author.Author;
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ public class BookDTO {
     private Double price;
     private Long publisherID;
     private Set<Long> authorIDs;
+    private Set<Long> genreIDs;
 
     public BookDTO(Book book) {
 
@@ -33,5 +35,6 @@ public class BookDTO {
         this.price = book.getPrice();
         this.publisherID = book.getPublisher().getId();
         this.authorIDs = book.getAuthors().stream().map(Author::getId).collect(Collectors.toSet());
+        this.genreIDs = book.getGenres().stream().map(Genre::getId).collect(Collectors.toSet());
     }
 }

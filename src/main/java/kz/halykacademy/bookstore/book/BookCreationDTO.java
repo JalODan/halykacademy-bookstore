@@ -19,6 +19,7 @@ public class BookCreationDTO {
     private Double price;
     private Long publisherID;
     private Set<Long> authorIDs;
+    private Set<Long> genreIDs;
 
     public Book toBook() {
 
