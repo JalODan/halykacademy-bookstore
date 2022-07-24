@@ -1,15 +1,13 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.Genre.Genre;
+import kz.halykacademy.bookstore.genre.Genre;
 import kz.halykacademy.bookstore.book.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.ManyToMany;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 

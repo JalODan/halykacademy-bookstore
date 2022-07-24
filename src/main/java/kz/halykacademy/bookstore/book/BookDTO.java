@@ -1,7 +1,6 @@
 package kz.halykacademy.bookstore.book;
 
-import kz.halykacademy.bookstore.Genre.Genre;
-import kz.halykacademy.bookstore.Publisher.PublisherDTO;
+import kz.halykacademy.bookstore.genre.Genre;
 import kz.halykacademy.bookstore.author.Author;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

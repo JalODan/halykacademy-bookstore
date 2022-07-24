@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.Genre;
+package kz.halykacademy.bookstore.genre;
 
 import kz.halykacademy.bookstore.author.Author;
 import kz.halykacademy.bookstore.book.Book;

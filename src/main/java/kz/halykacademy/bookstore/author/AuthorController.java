@@ -1,8 +1,7 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.Genre.Genre;
-import kz.halykacademy.bookstore.Genre.GenreService;
-import kz.halykacademy.bookstore.book.BookDTO;
+import kz.halykacademy.bookstore.genre.Genre;
+import kz.halykacademy.bookstore.genre.GenreService;
 import kz.halykacademy.bookstore.book.BookService;
 import kz.halykacademy.bookstore.common.dto.SearchByGenresDTO;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.Genre;
+package kz.halykacademy.bookstore.genre;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

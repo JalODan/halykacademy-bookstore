@@ -1,6 +1,6 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.Genre.Genre;
+import kz.halykacademy.bookstore.genre.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

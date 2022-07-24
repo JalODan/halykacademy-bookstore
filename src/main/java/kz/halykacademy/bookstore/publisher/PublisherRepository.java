@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.Publisher;
+package kz.halykacademy.bookstore.publisher;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

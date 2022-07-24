@@ -1,6 +1,6 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.Genre.Genre;
+import kz.halykacademy.bookstore.genre.Genre;
 import kz.halykacademy.bookstore.book.Book;
 import lombok.*;
 

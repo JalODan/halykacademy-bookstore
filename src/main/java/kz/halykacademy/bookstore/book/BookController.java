@@ -1,17 +1,15 @@
 package kz.halykacademy.bookstore.book;
 
-import kz.halykacademy.bookstore.Genre.Genre;
-import kz.halykacademy.bookstore.Genre.GenreService;
-import kz.halykacademy.bookstore.Publisher.Publisher;
-import kz.halykacademy.bookstore.Publisher.PublisherService;
+import kz.halykacademy.bookstore.genre.Genre;
+import kz.halykacademy.bookstore.genre.GenreService;
+import kz.halykacademy.bookstore.publisher.Publisher;
+import kz.halykacademy.bookstore.publisher.PublisherService;
 import kz.halykacademy.bookstore.author.Author;
 import kz.halykacademy.bookstore.author.AuthorService;
 import kz.halykacademy.bookstore.common.dto.SearchByGenresDTO;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 

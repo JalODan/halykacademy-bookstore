@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.Genre;
+package kz.halykacademy.bookstore.publisher;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,13 +9,13 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class GenreCreationDTO {
+public class PublisherCreationDTO {
 
     private String name;
 
-    public Genre toGenre() {
+    public Publisher toPublisher() {
 
-        return Genre.builder()
+        return Publisher.builder()
                 .name(name)
                 .build();
     }

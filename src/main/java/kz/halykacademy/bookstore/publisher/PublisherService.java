@@ -1,6 +1,5 @@
-package kz.halykacademy.bookstore.Publisher;
+package kz.halykacademy.bookstore.publisher;
 
-import kz.halykacademy.bookstore.book.Book;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

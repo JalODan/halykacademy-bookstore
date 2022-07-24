@@ -18,6 +18,72 @@ tags:
   - name: user
     description: Operations available to users
 paths:
+  /user:
+    post:
+      tags:
+        - user
+      description: User registration
+      parameters:
+        - name: user
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/User'
+      responses:
+        "201":
+          description: Created
+
+  /user/{id}:
+    get:
+      tags:
+        - user
+      description: Get user data
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+
+    put:
+      tags:
+        - user
+      description: Update user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: user
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/User'
+      responses:
+        "200":
+          description: Successful
+
+    delete:
+      tags:
+        - admin
+      description: Delete user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: Successful
+
   /book:
     post:
       tags:
@@ -408,17 +474,12 @@ components:
         id:
           type: integer
           format: int64
-        username:
+        name:
+          type: string
+        login:
           type: string
         password:
           type: string
           format: password
-        type:
-          $ref: '#/components/schemas/UserType'
-    UserType:
-      type: object
-      properties:
-        code:
-          type: string
-        name:
-          type: string
+        isAdmin:
+          type: boolean

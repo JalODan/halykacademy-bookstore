@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.Genre;
+package kz.halykacademy.bookstore.genre;
 
 import org.springframework.stereotype.Service;
 

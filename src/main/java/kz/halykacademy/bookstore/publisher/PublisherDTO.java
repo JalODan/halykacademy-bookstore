@@ -1,14 +1,12 @@
-package kz.halykacademy.bookstore.Publisher;
+package kz.halykacademy.bookstore.publisher;
 
 import kz.halykacademy.bookstore.book.Book;
-import kz.halykacademy.bookstore.book.BookDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Getter

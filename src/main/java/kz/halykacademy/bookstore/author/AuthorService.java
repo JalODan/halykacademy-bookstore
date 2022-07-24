@@ -1,11 +1,8 @@
 package kz.halykacademy.bookstore.author;
 
-import kz.halykacademy.bookstore.Genre.Genre;
-import kz.halykacademy.bookstore.book.Book;
-import kz.halykacademy.bookstore.book.BookRepository;
+import kz.halykacademy.bookstore.genre.Genre;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
