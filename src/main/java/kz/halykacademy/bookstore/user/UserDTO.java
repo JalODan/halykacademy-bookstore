@@ -12,15 +12,6 @@ import lombok.Setter;
 public class UserDTO {
 
     private Long id;
-    private String name;
     private String login;
-    private boolean isAdmin;
-
-    public UserDTO(User user) {
-
-        this.id = user.getId();
-        this.name = user.getName();
-        this.login = user.getLogin();
-        this.isAdmin = user.isAdmin();
-    }
+    private String roleName;
 }

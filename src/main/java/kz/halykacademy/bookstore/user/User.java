@@ -1,6 +1,7 @@
 package kz.halykacademy.bookstore.user;
 
 import lombok.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 
@@ -16,8 +17,12 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+
+    @Column(unique = true)
     private String login;
     private String password;
-    private boolean isAdmin;
+    private Role role;
+
+    @Builder.Default
+    private Boolean active = false;
 }

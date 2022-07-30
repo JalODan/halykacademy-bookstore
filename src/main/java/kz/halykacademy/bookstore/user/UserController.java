@@ -11,25 +11,28 @@ import java.util.stream.Collectors;
 public class UserController {
     
     private final UserService userService;
+    private final UserMapper userMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserMapper userMapper) {
         this.userService = userService;
+        this.userMapper = userMapper;
     }
 
     @GetMapping
     public Set<UserDTO> getAll() {
-        return userService.getAll().stream().map(UserDTO::new).collect(Collectors.toSet());
+        return userService.getAll().stream().map(userMapper::toDTO).collect(Collectors.toSet());
     }
 
     @PostMapping
     public void create(@RequestBody UserCreationDTO dto) {
-        User user = dto.toUser();
-        userService.create(user);
+
+        User user = userMapper.toEntity(dto);
+        userService.create(userMapper.toEntity(dto));
     }
 
     @GetMapping("/{id}")
     public UserDTO getById(@PathVariable Long id) {
-        return new UserDTO(userService.getById(id));
+        return userMapper.toDTO(userService.getById(id));
     }
 
     @DeleteMapping("/{id}")
@@ -40,7 +43,7 @@ public class UserController {
     @PutMapping("/{id}")
     public void update(@PathVariable Long id, @RequestBody UserCreationDTO dto) {
 
-        User user = dto.toUser();
+        User user = userMapper.toEntity(dto);
         user.setId(id);
         userService.update(user);
     }
