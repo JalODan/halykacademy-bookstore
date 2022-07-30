@@ -18,11 +18,4 @@ public class PublisherDTO {
     private Long id;
     private String name;
     private List<Long> bookIDs;
-
-    public PublisherDTO(Publisher publisher) {
-
-        this.id = publisher.getId();
-        this.name = publisher.getName();
-        this.bookIDs = publisher.getBooks().stream().map(Book::getId).collect(Collectors.toList());
-    }
 }

@@ -12,11 +12,4 @@ import lombok.Setter;
 public class PublisherCreationDTO {
 
     private String name;
-
-    public Publisher toPublisher() {
-
-        return Publisher.builder()
-                .name(name)
-                .build();
-    }
 }
