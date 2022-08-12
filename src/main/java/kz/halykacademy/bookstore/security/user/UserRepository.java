@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.user;
+package kz.halykacademy.bookstore.security.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

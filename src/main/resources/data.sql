@@ -1,4 +1,4 @@
--- publisher
+-- publishers
 INSERT INTO publisher (name)
 
 VALUES
@@ -6,8 +6,7 @@ VALUES
     ('Эксмо'),
     ('Амфора');
 
-
--- genre
+-- genres
 INSERT INTO genre(name)
 
 VALUES
@@ -18,7 +17,7 @@ VALUES
     ('Детектив'),
     ('Авангардная литература');
 
--- book
+-- books
 INSERT INTO book (title, release_year, number_of_pages, price, publisher_id)
 
 VALUES
@@ -31,7 +30,6 @@ VALUES
     ('Белоснежка', 2021, 800, 123, 1),
     ('Древняя Азия. От Будды до Конфуция', 2014, 47, 2387, 3);
 
-
 -- author
 INSERT INTO author (date_of_birth, fathername, firstname, lastname)
 
@@ -40,7 +38,6 @@ VALUES
     ('1933-04-15', 'Натанович', 'Борис', 'Стругацкий'),
     ('1949-01-01', '', 'Харуки', 'Мураками'),
     ('1990-12-12', '', 'Мариса', 'Мейер');
-
 
 -- book_authors
 INSERT INTO book_authors(authors_id, books_id)
@@ -56,7 +53,6 @@ VALUES
     (3, 5),
     (3, 6),
     (4, 7);
-
 
 -- book-genres
 INSERT INTO book_genres(books_id, genres_id)
@@ -88,3 +84,7 @@ VALUES
     (3, 3),
     (4, 4);
 
+-- users
+insert into _user(login, password, role)
+VALUES
+    ('olzhas', '123', 1);

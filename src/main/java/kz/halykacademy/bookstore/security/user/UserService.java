@@ -1,6 +1,5 @@
-package kz.halykacademy.bookstore.user;
+package kz.halykacademy.bookstore.security.user;
 
-import kz.halykacademy.bookstore.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

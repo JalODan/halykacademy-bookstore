@@ -1,7 +1,6 @@
-package kz.halykacademy.bookstore.user;
+package kz.halykacademy.bookstore.security.user;
 
 import lombok.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 
