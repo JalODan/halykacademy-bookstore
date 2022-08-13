@@ -20,6 +20,7 @@ public class BookCreationDTO {
     private Long publisherID;
     private Set<Long> authorIDs;
     private Set<Long> genreIDs;
+    private Integer available;
 
     public Book toBook() {
 
@@ -28,6 +29,7 @@ public class BookCreationDTO {
                 .releaseYear(releaseYear)
                 .numberOfPages(numberOfPages)
                 .price(price)
+                .available(available)
                 .build();
     }
 }

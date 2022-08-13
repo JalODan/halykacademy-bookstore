@@ -24,7 +24,10 @@ public class OrderController {
 
     @PostMapping
     public void create(@RequestBody OrderCreationDTO dto) {
-        orderService.create(orderMapper.toEntity(dto));
+
+        Order order = orderMapper.toEntity(dto);
+        order.getItems().forEach(item -> item.setOrder(order));
+        orderService.create(order);
     }
 
     @GetMapping("/{id}")
