@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.security.user;
+package kz.halykacademy.bookstore.user;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import lombok.*;
 @ToString
 public class UserCreationDTO {
 
-    private String login;
+    private String username;
     private String password;
     private String roleName;
 }

@@ -1,7 +1,7 @@
 package kz.halykacademy.bookstore.order;
 
 import kz.halykacademy.bookstore.order.item.ItemMapper;
-import kz.halykacademy.bookstore.security.user.UserService;
+import kz.halykacademy.bookstore.user.UserService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

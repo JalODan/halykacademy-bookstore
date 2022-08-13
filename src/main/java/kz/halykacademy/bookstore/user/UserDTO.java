@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.security.user;
+package kz.halykacademy.bookstore.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,6 +12,6 @@ import lombok.Setter;
 public class UserDTO {
 
     private Long id;
-    private String login;
+    private String username;
     private String roleName;
 }
