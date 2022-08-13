@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.security.user;
+package kz.halykacademy.bookstore.user;
 
 import lombok.*;
 
@@ -18,10 +18,13 @@ public class User {
     private Long id;
 
     @Column(unique = true)
-    private String login;
+    private String username;
+
     private String password;
+
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     @Builder.Default
-    private Boolean active = false;
+    private Boolean active = true;
 }

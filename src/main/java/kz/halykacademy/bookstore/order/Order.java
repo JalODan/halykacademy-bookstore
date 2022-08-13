@@ -1,7 +1,7 @@
 package kz.halykacademy.bookstore.order;
 
 import kz.halykacademy.bookstore.order.item.Item;
-import kz.halykacademy.bookstore.security.user.User;
+import kz.halykacademy.bookstore.user.User;
 import lombok.*;
 
 import javax.persistence.*;

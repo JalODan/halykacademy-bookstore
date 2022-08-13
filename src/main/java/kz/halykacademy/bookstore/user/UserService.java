@@ -1,4 +1,4 @@
-package kz.halykacademy.bookstore.security.user;
+package kz.halykacademy.bookstore.user;
 
 import org.springframework.stereotype.Service;
 
