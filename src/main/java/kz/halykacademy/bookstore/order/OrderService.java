@@ -1,23 +1,44 @@
 package kz.halykacademy.bookstore.order;
 
-import org.aspectj.weaver.ast.Or;
+import kz.halykacademy.bookstore.book.Book;
+import kz.halykacademy.bookstore.book.BookService;
+import kz.halykacademy.bookstore.order.item.Item;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class OrderService {
 
     private final OrderRepository orderRepository;
 
-    public OrderService(OrderRepository orderRepository) {
+    private final BookService bookService;
+
+    public OrderService(OrderRepository orderRepository, BookService bookService) {
         this.orderRepository = orderRepository;
+        this.bookService = bookService;
+    }
+
+    private boolean isSatisfiable(Order order) {
+
+        return order.getItems().stream().noneMatch(
+                item -> item.getBook().getAvailable() < item.getAmount()
+        );
     }
 
     public void create(Order order) {
 
-        order.getItems().forEach(item -> item.setOrder(order));
+        if (!isSatisfiable(order)) {
+            throw new IllegalStateException("Requested amount exceeds the available");
+        }
+
+        for (Item item : order.getItems()) {
+
+            Book book = item.getBook();
+            book.setAvailable(book.getAvailable() - item.getAmount());
+            bookService.update(book);
+        }
+
         orderRepository.save(order);
     }
 

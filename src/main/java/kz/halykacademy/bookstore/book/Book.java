@@ -23,6 +23,7 @@ public class Book {
     private Integer releaseYear;
     private Integer numberOfPages;
     private Double price;
+    private Integer available;
     @ManyToOne
     private Publisher publisher;
     @ManyToMany
